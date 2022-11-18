@@ -1,0 +1,48 @@
+@props([
+    'group' => null,
+    'label' => null,
+    'type' => 'text',
+    'name' => null,
+    'id' => null,
+    'value' => null,
+    'required' => false,
+    'disabled' => false,
+])
+
+<div class="{{ $group }}">
+    <div class="form-group mb-2">
+        <label class="form-label">{{ $label }} @if($required)<i class="text-danger">*</i>@endif</label>
+
+        @if ($type == 'textarea')
+            <textarea
+                @class([
+                    'form-control',
+                    $attributes->get('class'),
+                    'invalid-feedback' => $errors->has($name)
+                ])
+                name="{{ $name }}"
+                id="{{ $id ?? $name }}"
+                {{ $required ? 'required' : '' }}
+                {{ $disabled ? 'disabled' : '' }}
+                {{ $attributes }}>{{ old($name, $value) }}</textarea>
+        @else
+            <input
+                type="{{ $type }}"
+                @class([
+                    'form-control',
+                    $attributes->get('class'),
+                    'is-invalid' => $errors->has($name)
+                ])
+                name="{{ $name }}"
+                id="{{ $id ?? $name }}"
+                value="{{ old($name, $value) }}"
+                {{ $required ? 'required' : '' }}
+                {{ $disabled ? 'disabled' : '' }}
+                {{ $attributes }}
+            />
+        @endif
+        @error($name)
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
+</div>
