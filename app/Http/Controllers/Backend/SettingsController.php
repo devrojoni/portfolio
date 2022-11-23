@@ -61,6 +61,7 @@ class SettingsController extends Controller
                 'company_state' => ['required', 'max:255'],
                 'company_city' => ['required', 'max:255'],
                 'company_postcode' => ['required', 'max:255'],
+                'map' => ['nullable'],
             ]);
         }
         

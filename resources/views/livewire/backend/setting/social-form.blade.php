@@ -32,13 +32,13 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($data as $data)
+            @foreach($socials as $social)
                 <tr>
-                    <td class="text-start border-0">{{ $data->icon }}</td>
-                    <td class="text-center border-0">{{ $data->url }}</td>
+                    <td class="text-start border-0">{{ $social->icon }}</td>
+                    <td class="text-center border-0">{{ $social->url }}</td>
                     <td class="text-end border-0">
-                        <button wire:click="edit({{ $data->id }})" class="btn btn-primary btn-sm"><i class="ph-note-pencil fs-5"></i></button>
-                        <button wire:click="delete({{ $data->id }})" class="btn btn-danger btn-sm"><i class="ph-trash fs-5"></i></button>
+                        <button wire:click="edit({{ $social->id }})" class="btn btn-primary btn-sm"><i class="ph-note-pencil fs-5"></i></button>
+                        <button wire:click="delete({{ $social->id }})" class="btn btn-danger btn-sm"><i class="ph-trash fs-5"></i></button>
                     </td>
                 </tr>
             @endforeach

@@ -1,3 +1,4 @@
+@aware(['css'])
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{{ setting('website_title') }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,3 +29,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.css" />
 <link type="text/css" href="{{ asset('assets/backend/css/volt.css') }}" rel="stylesheet">
 <livewire:styles />
+
+{{ $css }}
+
+@stack('css')

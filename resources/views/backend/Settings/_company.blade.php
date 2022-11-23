@@ -77,6 +77,17 @@
             id="company_postcode"
             :value="setting('company_postcode')"
         />
+    <div class="row">
+        <x-ui.input
+            group="col-12"
+            :label="__('Map')"
+            type="textarea"
+            name="map"
+            id="map"
+            :value="setting('map')"
+            rows="5"
+        />
+    </div>
 
         <input type="hidden" name="tab" value="company" />
     </div>

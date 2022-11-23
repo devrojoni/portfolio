@@ -28,4 +28,11 @@ Route::group([ 'middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'backend
     Route::put('/profile/{id}/password', [Backend\PasswordChangeController::class, 'update'])->name('change.password');
     Route::get('/settings/{tab?}', [Backend\SettingsController::class, 'index'])->name('settings.index');
     Route::put('/settings/update', [Backend\SettingsController::class, 'update'])->name('settings.update');
+    Route::resource('/hero-sections',Backend\HeroSectionController::class);
+    Route::resource('/skill-sections',Backend\SkillSectionController::class);
+    Route::resource('/about-sections',Backend\AboutSectionController::class);
+    Route::resource('/experience-sections',Backend\ExperienceController::class);
+    Route::resource('/education-sections',Backend\EducationController::class);
+    Route::resource('/service-sections',Backend\ServiceController::class);
+    Route::resource('/team-sections',Backend\TeamController::class);
 });

@@ -13,11 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('hero_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('key');
-            $table->longText('value')->nullable();
+            $table->string('heading');
+            $table->string('sub_heading');
+            $table->string('skills');
+            $table->string('video_url')->nullable();
+            $table->string('image')->nullable();
+            $table->string('cv')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('hero_sections');
     }
 };

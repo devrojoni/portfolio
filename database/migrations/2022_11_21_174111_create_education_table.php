@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('education', function (Blueprint $table) {
             $table->id();
-            $table->string('key');
-            $table->longText('value')->nullable();
+            $table->string('institute');
+            $table->string('course');
+            $table->timestamp('started_at')->nullable();
+            $table->timestamp('end_at')->nullable();
+            $table->enum('status',['Active', 'Inactive']);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('education');
     }
 };

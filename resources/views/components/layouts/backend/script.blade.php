@@ -1,3 +1,6 @@
+@aware(['js'])
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="{{ asset('assets/backend/vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
 <script src="{{ asset('assets/backend/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/backend/vendor/onscreen/dist/on-screen.umd.min.js') }}"></script>
@@ -18,3 +21,7 @@
 <script src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
 <x-flashify::scripts />
 <livewire:scripts />
+
+{{ $js }}
+
+@stack('js')

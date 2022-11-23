@@ -11,8 +11,12 @@
 
 <div class="{{ $group }}">
     <div class="form-group mb-2">
-        <label class="form-label">{{ $label }} @if($required)<i class="text-danger">*</i>@endif</label>
-
+        <div class="d-flex justify-content-between align-items-center">
+            <label class="form-label">{{ $label }} @if($required)<i class="text-danger">*</i>@endif</label>
+            @if($type == 'file' && $value)
+            <a href="{{ $value }}" class="badge rounded-pill bg-primary">{{ __('Show File') }}</a>
+            @endif
+        </div>
         @if ($type == 'textarea')
             <textarea
                 @class([
@@ -30,6 +34,7 @@
                 type="{{ $type }}"
                 @class([
                     'form-control',
+                    'form-control-color w-100' => $type == 'color',
                     $attributes->get('class'),
                     'is-invalid' => $errors->has($name)
                 ])

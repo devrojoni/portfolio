@@ -10,7 +10,7 @@ class SocialForm extends Component
     public $icon;
     public $url;
     public $social_id;
-
+    
     public function submit()
     {
         $this->validate([
@@ -23,24 +23,28 @@ class SocialForm extends Component
            'url' => $this->url,
         ]);
 
+        flashify()->livewire($this)->fire($this->social_id ? 'updated' : 'created');
+
         $this->reset('icon', 'url');
+    }
+    public function edit(Social $socials)
+    {
+        $this->social_id = $socials->id;
+
+        $this->icon = $socials->icon;
+
+        $this->url = $socials->url;
+    }
+    public function delete(Social $socials)
+    {
+        $socials->delete();
+
+        flashify()->livewire($this)->fire('deleted');
+
     }
     public function render()
     {
-        $data = Social::all();
-        return view('livewire.backend.setting.social-form', compact('data'));
-    }
-    public function edit($id)
-    {
-        $data = Social::findOrFail($id);
-        $this->social_id = $id;
-        $this->icon = $data->icon;
-        $this->url = $data->url;
-    }
-    public function delete($id)
-    {
-        Social::find($id)->delete();
-        session()->flash('message', 'Post Deleted Successfully.');
-
+        $socials = Social::all();
+        return view('livewire.backend.setting.social-form', compact('socials'));
     }
 }
