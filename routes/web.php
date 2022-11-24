@@ -35,4 +35,6 @@ Route::group([ 'middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'backend
     Route::resource('/education-sections',Backend\EducationController::class);
     Route::resource('/service-sections',Backend\ServiceController::class);
     Route::resource('/team-sections',Backend\TeamController::class);
+    Route::resource('/categories',Backend\CategoryController::class);
+    Route::resource('/projects',Backend\ProjectController::class);
 });

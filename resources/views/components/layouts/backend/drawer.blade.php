@@ -180,12 +180,12 @@
                     <ul class="flex-column nav">
                         <li class="nav-item">
                             <a class="nav-link" target="_blank"
-                                href="https://themesberg.com/docs/volt-bootstrap-5-dashboard/components/accordions/">
+                                href="{{ route('backend.categories.index') }}">
                                 <span class="sidebar-text">{{ __('category') }}</span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="../../pages/components/buttons.html">
+                            <a class="nav-link" href="{{ route('backend.projects.index') }}">
                                 <span class="sidebar-text">{{ __('projects') }}</span>
                             </a>
                         </li>
