@@ -1,4 +1,4 @@
-<x-layouts.auth>
+<x-layout.auth>
     <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
         <div class="container">
             <div class="row justify-content-center form-bg-image"
@@ -10,14 +10,14 @@
                         </div>
                         <form action="{{ route('login') }}" method="POST">
                             @csrf
-                            <x-ui.input 
+                            <x-ui.input
                                 group="col-lg-12"
                                 :label="__('Email')"
                                 type="email"
                                 name="email"
                                 id="email"
                             />
-                            <x-ui.input 
+                            <x-ui.input
                                 group="col-lg-12"
                                 :label="__('Password')"
                                 type="password"

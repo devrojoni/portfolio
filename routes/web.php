@@ -17,24 +17,38 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[Frontend\HomeController::class, 'index'])->name('home');
-// Route::get('/dashboard', [Backend\DashboardController::class, 'index'])->name('dashboard');
 Route::get('/login', [Auth\LoginController::class, 'index'])->name('login');
 Route::post('/login', [Auth\LoginController::class, 'store']);
-Route::put('/logout', [Auth\LogoutController::class, 'destroy'])->name('logout');
-Route::group([ 'middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'backend.'], function () {
+
+Route::post('/logout', [Auth\LogoutController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');
+
+Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'backend.'], function () {
     Route::get('/dashboard', [Backend\DashboardController::class, 'index'])->name('dashboard');
+
     Route::get('/profile/{tab?}', [Backend\ProfileController::class, 'index'])->name('profile.index');
     Route::put('/profile/{user}/update', [Backend\ProfileController::class, 'update'])->name('profile.update');
-    Route::put('/profile/{id}/password', [Backend\PasswordChangeController::class, 'update'])->name('change.password');
-    Route::get('/settings/{tab?}', [Backend\SettingsController::class, 'index'])->name('settings.index');
-    Route::put('/settings/update', [Backend\SettingsController::class, 'update'])->name('settings.update');
-    Route::resource('/hero-sections',Backend\HeroSectionController::class);
-    Route::resource('/skill-sections',Backend\SkillSectionController::class);
-    Route::resource('/about-sections',Backend\AboutSectionController::class);
-    Route::resource('/experience-sections',Backend\ExperienceController::class);
-    Route::resource('/education-sections',Backend\EducationController::class);
-    Route::resource('/service-sections',Backend\ServiceController::class);
-    Route::resource('/team-sections',Backend\TeamController::class);
-    Route::resource('/categories',Backend\CategoryController::class);
-    Route::resource('/projects',Backend\ProjectController::class);
+    Route::put('/profile/{id}/password', [Backend\PasswordChangeController::class, 'update'])->name('change_password');
+
+    Route::get('/settings/{tab?}', [Backend\SettingController::class, 'index'])->name('settings.index');
+    Route::put('/settings/update', [Backend\SettingController::class, 'update'])->name('settings.update');
+
+    Route::resource('hero-sections', Backend\HeroSectionController::class);
+
+    Route::resource('about-sections', Backend\AboutSectionController::class);
+
+    Route::resource('skills', Backend\SkillController::class);
+
+    Route::resource('experiences', Backend\ExperienceController::class);
+
+    Route::resource('educations', Backend\EducationController::class);
+
+    Route::resource('services', Backend\ServiceController::class);
+
+    Route::resource('categories', Backend\CategoryController::class);
+
+    Route::resource('projects', Backend\ProjectController::class);
+
+    Route::resource('teams', Backend\TeamController::class);
 });

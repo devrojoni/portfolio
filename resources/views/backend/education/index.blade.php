@@ -1,22 +1,23 @@
-<x-layouts.backend>
+<x-layout.backend>
     <div class="row">
         <div class="col-md-12">
             <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <div class="fs-4 fw-bold text-center">{{ __('Education') }}</div>
-                        <a href="{{ route('backend.education-sections.create') }}" class="btn btn-primary">{{ __('Add New') }}</a>
+                        <div class="fs-4 fw-bold">{{ __('Educations') }}</div>
+                        <a href="{{ route('backend.educations.create') }}" class="btn btn-primary">{{ __('Add New') }}</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="row mt-3">
         <div class="col-md-12">
             <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-centered table-nowrap mb-0 rounded">
+                        <table class="table table-centered table-nowrap mb-0 rounded align-middle">
                             <thead class="thead-light">
                                 <tr>
                                     <th class="text-start border-0">{{ __('SL') }}</th>
@@ -28,27 +29,29 @@
                                     <th class="text-end border-0">{{ __('Action') }}</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                @foreach($educationSections as $educationSection)
-                                <tr>
-                                    <td class="text-start border-0">{{ $loop->iteration }}</td>
-                                    <td class="text-center border-0">{{ $educationSection->institute }}</td>
-                                    <td class="text-center border-0">{{ $educationSection->course }}</td>
-                                    <td class="text-center border-0">{{ $educationSection->started_at->format('d-m-Y') }}</td>
-                                    <td class="text-center border-0">{{ $educationSection->end_at->format('d-m-Y') }}</td>
-                                    <td class="text-center border-0">{{ $educationSection->status }}</td>
-                                    <td class="text-end border-0">
-                                        <div class="d-flex justify-content-end align-items-center gap-2">
-                                            <a href="{{ route('backend.education-sections.edit', $educationSection->id) }}" class="btn btn-primary btn-sm ms-3"><i class="ph-note-pencil fs-5"></i></a>
-                                            <form method="POST" action="{{ route('backend.education-sections.destroy', $educationSection->id) }}" onsubmit="return confirm('Are you sure?');">
-                                                @csrf
-                                                @method('DELETE')
 
-                                                <button type="submit" class="btn btn-danger btn-sm"><i class="ph-trash fs-5"></i></button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tbody>
+                                @foreach ($educations as $education)
+                                    <tr>
+                                        <td class="text-start">{{ $loop->iteration }}</td>
+                                        <td class="text-center">{{ $education->institute }}</td>
+                                        <td class="text-center">{{ $education->course }}</td>
+                                        <td class="text-center">{{ $education->started_at->format('d-m-Y') }}</td>
+                                        <td class="text-center">{{ $education->end_at->format('d-m-Y') }}</td>
+                                        <td class="text-center">{{ $education->status }}</td>
+                                        <td class="text-end">
+                                            <div class="d-flex justify-content-end align-items-center gap-3">
+                                                <a href="{{ route('backend.educations.edit', $education->id) }}" class="btn btn-primary btn-sm"><i class="ph-note-pencil fs-5"></i></a>
+
+                                                <form method="POST" action="{{ route('backend.educations.destroy', $education->id) }}" onsubmit="return confirm('Are you sure?');">
+                                                    @csrf
+                                                    @method('DELETE')
+
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="ph-trash fs-5"></i></button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>

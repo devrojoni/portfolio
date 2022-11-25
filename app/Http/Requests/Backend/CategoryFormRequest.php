@@ -27,16 +27,18 @@ class CategoryFormRequest extends FormRequest
     {
         return [
             'name' => [
-                'required', 
+                'required',
                 'max:255',
                 Rule::unique(Category::class)->ignore($this->category->id ?? null),
             ],
             'status' => [
                 'required',
-                ],
+            ],
         ];
     }
-    public function persist(){
+
+    public function persist()
+    {
         $validated = $this->validated();
 
         $validated['slug'] = \Str::slug($validated['name']);

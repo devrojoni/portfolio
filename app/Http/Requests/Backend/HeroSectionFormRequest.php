@@ -25,41 +25,46 @@ class HeroSectionFormRequest extends FormRequest
     {
         return [
             'heading' => [
-                'required', 
+                'required',
                 'max:255',
             ],
             'sub_heading' => [
-                'required', 
+                'required',
                 'max:255',
             ],
             'skills' => [
                 'required',
-                 'max:255',
-                ],
+                'max:255',
+            ],
             'video_url' => [
                 'nullable',
-                 'max:255',
-                ],
+                'max:255',
+            ],
             'image' => [
                 $this->hero_section ? 'nullable' : 'required',
-                 'image', 
-                 'max:2048',
-                ],
+                'image',
+                'max:2048',
+            ],
             'cv' => [
                 'nullable',
-                 'file',
-                  'max:2048',
-                ],
+                'file',
+                'max:2048',
+            ],
         ];
     }
-    public function persist(){
+
+    public function persist()
+    {
         $validated = $this->validated();
-        if($this->hasFile('image')){
-            $validated['image'] = upload($this->image, 'hero-section/', $this->hero_section->image ?? null) ;
+
+        if ($this->hasFile('image')) {
+            $validated['image'] = upload($this->image, 'hero_sections/', $this->hero_section->image ?? null);
         }
-        if($this->hasFile('cv')){
-            $validated['cv'] = upload($this->cv, 'hero-section/', $this->hero_section->cv ?? null) ;
+
+        if ($this->hasFile('cv')) {
+            $validated['cv'] = upload($this->cv, 'hero_sections/', $this->hero_section->cv ?? null);
         }
+
         return $validated;
     }
 }

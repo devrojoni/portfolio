@@ -13,8 +13,8 @@ class PasswordChangeController extends Controller
         $request->validate([
             'current_password' => [
                 'required',
-                    function($attribute,$value,$fails){
-                    if(! \Hash::check($value,auth()->user()->password)){
+                    function($attribute, $value, $fails){
+                    if(! \Hash::check($value, auth()->user()->password)){
                         $fails(__('auth.password'));
                     }
                 },
@@ -23,12 +23,12 @@ class PasswordChangeController extends Controller
                 'required',
                 'confirmed',
             ],
-
         ]);
+
         User::whereId($id)->update([
             'password' => bcrypt($request->password),
         ]);
-        return redirect()
-        ->route('backend.profile.index', 'change_password');
+
+        return redirect()->route('backend.profile.index', 'change_password');
     }
 }

@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('designation');
             $table->timestamp('started_at')->nullable();
             $table->timestamp('end_at')->nullable();
-            $table->enum('status',['Active', 'Inactive']);
-            $table->softDeletes();
+            $table->enum('status', ['Active', 'Inactive']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -24,21 +24,47 @@ class AboutSectionFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'experience_year' => ['required', 'max:255'],
-            'experience_title' => ['required', 'max:255'],
-            'description' => ['required'],
-            'image' => ['required', 'image', 'max:2048'],
-            'total_client' => ['nullable', 'max:255'],
-            'client_description' => ['nullable'],
-            'total_project' => ['required', 'max:255'],
-            'project_description' => ['required'],
+            'experience_year' => [
+                'required',
+                'max:255',
+            ],
+            'experience_title' => [
+                'required',
+                'max:255',
+            ],
+            'description' => [
+                'required',
+            ],
+            'image' => [
+                $this->about_section ? 'nullable' : 'required',
+                'image',
+                'max:2048',
+            ],
+            'total_client' => [
+                'nullable',
+                'max:255',
+            ],
+            'client_description' => [
+                'nullable',
+            ],
+            'total_project' => [
+                'required',
+                'max:255',
+            ],
+            'project_description' => [
+                'required',
+            ],
         ];
     }
-    public function persist(){
+
+    public function persist()
+    {
         $validated = $this->validated();
-        if($this->hasFile('image')){
-            $validated['image'] = upload($this->image, 'about-section/', $this->about_section->image ?? null) ;
+
+        if ($this->hasFile('image')) {
+            $validated['image'] = upload($this->image, 'about_sections/', $this->about_section->image ?? null);
         }
+
         return $validated;
     }
 }

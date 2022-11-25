@@ -1,4 +1,4 @@
-<x-layouts.frontend>
+<x-layout.frontend>
 
         @include('frontend.home._hero')
 
@@ -17,5 +17,5 @@
         @include('frontend.home._contact')
 
         @include('frontend.home._map')
-    
+
 </x-layouts.frontend>

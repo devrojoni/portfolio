@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Project extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $fillable =[
         'category_id',
         'title',
@@ -18,7 +19,9 @@ class Project extends Model
         'image',
         'status',
     ];
-    public function category(){
-     return $this->belongsTo(Category::class);
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('image')->nullable();
             $table->longText('description')->nullable();
-            $table->enum('status',['Active', 'Inactive']);
-            $table->softDeletes();
+            $table->enum('status', ['Active', 'Inactive']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

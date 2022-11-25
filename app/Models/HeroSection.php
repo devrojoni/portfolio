@@ -9,12 +9,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class HeroSection extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $fillable =[
-            'heading',
-            'sub_heading',
-            'skills',
-            'video_url',
-            'image',
-            'cv',
+        'heading',
+        'sub_heading',
+        'skills',
+        'video_url',
+        'image',
+        'cv',
     ];
 }

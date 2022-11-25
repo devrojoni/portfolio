@@ -25,18 +25,24 @@ class User extends Authenticatable
         'image',
         'password',
     ];
+
     protected $hidden = [
         'password',
         'remember_token',
     ];
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function getProfileImageAttribute(){
-        if($this->image){
+
+    public function getProfileImageAttribute()
+    {
+        if ($this->image) {
             return asset($this->image);
         }
-        $name=\Str::of($this->name)->replace('','+');
-        return 'https://ui-avatars.com/api/?name='.$name.'&background=0D8ABC&size=150&color=fff';
+
+        $name = \Str::of($this->name)->replace('', '+');
+
+        return "https://ui-avatars.com/api/?name={$name}&background=000000&size=150&color=fff";
     }
 }

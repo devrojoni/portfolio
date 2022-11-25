@@ -2,52 +2,52 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Models\TeamSection;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\TeamSectionFormRequest;
+use App\Http\Requests\Backend\TeamFormRequest;
+use App\Models\Team;
 
 class TeamController extends Controller
 {
     public function index()
     {
-        $teamSections=TeamSection::latest()->get();
-        
-        return view('backend.team.index', compact('teamSections'));
+        $teams = Team::latest()->get();
+
+        return view('backend.team.index', compact('teams'));
     }
+
     public function create()
     {
         return view('backend.team.form');
     }
-    public function store(TeamSectionFormRequest $request)
-    {
-        TeamSection::create($request->persist());
 
-        return redirect()
-                    ->route('backend.team-sections.index')
-                    ->flashify('create', 'Data created successfully');
+    public function store(TeamFormRequest $request)
+    {
+        Team::create($request->persist());
+
+        return redirect()->route('backend.teams.index')->flashify('created');
     }
-    public function show($id)
+
+    public function show(Team $team)
     {
         //
     }
-    public function edit(TeamSection $teamSection)
-    {
-        return view('backend.team.form', compact('teamSection'));
-    }
-    public function update(TeamSectionFormRequest $request, TeamSection $teamSection)
-    {
-        $teamSection->update($request->persist());
-        
-        return redirect()
-                    ->route('backend.team-sections.index')
-                    ->flashify('update', 'Data updated successfully');
-    }
-    public function destroy(TeamSection $teamSection)
-    {
-        $teamSection->delete();
 
-        return redirect()
-                ->route('backend.team-sections.index')
-                ->flashify('delete', 'Data deleted successfully');
+    public function edit(Team $team)
+    {
+        return view('backend.team.form', compact('team'));
+    }
+
+    public function update(TeamFormRequest $request, Team $team)
+    {
+        $team->update($request->persist());
+
+        return redirect()->route('backend.teams.index')->flashify('updated');
+    }
+
+    public function destroy(Team $team)
+    {
+        $team->delete();
+
+        return back()->flashify('deleted');
     }
 }

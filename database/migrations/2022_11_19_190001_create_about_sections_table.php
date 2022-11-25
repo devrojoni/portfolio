@@ -23,8 +23,8 @@ return new class extends Migration
             $table->longText('client_description')->nullable();
             $table->string('total_project');
             $table->string('project_description');
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

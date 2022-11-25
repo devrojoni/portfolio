@@ -21,9 +21,9 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->string('url')->nullable();
             $table->string('image')->nullable();
-            $table->enum('status',['Active', 'Inactive']);
-            $table->softDeletes();
+            $table->enum('status', ['Active', 'Inactive']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

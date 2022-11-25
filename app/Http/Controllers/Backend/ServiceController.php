@@ -4,49 +4,50 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
-use App\Http\Requests\Backend\ServiceSectionFormRequest;
+use App\Http\Requests\Backend\ServiceFormRequest;
 
 class ServiceController extends Controller
 {
     public function index()
     {
-        $serviceSections=Service::latest()->get();
-        return view('backend.service.index', compact('serviceSections'));
+        $services = Service::latest()->get();
+
+        return view('backend.service.index', compact('services'));
     }
+
     public function create()
     {
         return view('backend.service.form');
     }
-    public function store(ServiceSectionFormRequest $request)
+
+    public function store(ServiceFormRequest $request)
     {
         Service::create($request->persist());
 
-        return redirect()
-                    ->route('backend.service-sections.index')
-                    ->flashify('create', 'Data created successfully');
+        return redirect()->route('backend.services.index')->flashify('created');
     }
-    public function show($id)
+
+    public function show(Service $service)
     {
         //
     }
-    public function edit(Service $serviceSection)
-    {
-        return view('backend.service.form', compact('serviceSection'));
-    }
-    public function update(ServiceSectionFormRequest $request, Service $serviceSections)
-    {
-        $serviceSections->update($request->persist());
-        
-        return redirect()
-                    ->route('backend.service-sections.index')
-                    ->flashify('update', 'Data updated successfully');
-    }
-    public function destroy(Service $serviceSections)
-    {
-        $serviceSections->delete();
 
-        return redirect()
-                ->route('backend.service-sections.index')
-                ->flashify('delete', 'Data deleted successfully');
+    public function edit(Service $service)
+    {
+        return view('backend.service.form', compact('service'));
+    }
+
+    public function update(ServiceFormRequest $request, Service $service)
+    {
+        $service->update($request->persist());
+
+        return redirect()->route('backend.services.index')->flashify('updated');
+    }
+
+    public function destroy(Service $service)
+    {
+        $service->delete();
+
+        return back()->flashify('deleted');
     }
 }

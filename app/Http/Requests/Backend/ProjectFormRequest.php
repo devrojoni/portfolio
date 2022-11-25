@@ -25,38 +25,42 @@ class ProjectFormRequest extends FormRequest
     {
         return [
             'category_id' => [
-                'required', 
+                'required',
             ],
             'title' => [
-                'required', 
+                'required',
                 'max:255',
             ],
             'sub_title' => [
-                'required', 
+                'required',
                 'max:255',
             ],
             'description' => [
-                'nullable', 
+                'nullable',
             ],
             'url' => [
-                'nullable', 
+                'nullable',
                 'max:255'
             ],
             'image' => [
-                $this->project ? 'nullable' : 'required',
-                 'image', 
-                 'max:2048',
-                ],
+                'nullable',
+                'image',
+                'max:2048',
+            ],
             'status' => [
                 'required',
-                ],
+            ],
         ];
     }
-    public function persist(){
+
+    public function persist()
+    {
         $validated = $this->validated();
-        if($this->hasFile('image')){
-            $validated['image'] = upload($this->image, 'project/', $this->project->image ?? null) ;
+
+        if ($this->hasFile('image')) {
+            $validated['image'] = upload($this->image, 'projects/', $this->project->image ?? null);
         }
+
         return $validated;
     }
 }

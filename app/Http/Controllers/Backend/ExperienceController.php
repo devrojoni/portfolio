@@ -4,50 +4,52 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Experience;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\ExperienceSectionFormRequest;
+use App\Http\Requests\Backend\ExperienceFormRequest;
 
 class ExperienceController extends Controller
 {
-   
     public function index()
     {
-        $experienceSections=Experience::latest()->get();
-        return view('backend.experience.index', compact('experienceSections'));
+        $experiences = Experience::latest()->get();
+
+        return view('backend.experience.index', compact('experiences'));
     }
+
     public function create()
     {
         return view('backend.experience.form');
     }
-    public function store(ExperienceSectionFormRequest $request)
+
+    public function store(ExperienceFormRequest $request)
     {
         Experience::create($request->validated());
 
         return redirect()
-                    ->route('backend.experience-sections.index')
-                    ->flashify('create', 'Data created successfully');
+            ->route('backend.experiences.index')
+            ->flashify('created');
     }
-    public function show($id)
+
+    public function show(Experience $experience)
     {
         //
     }
-    public function edit(Experience $experienceSection)
-    {
-        return view('backend.experience.form', compact('experienceSection'));
-    }
-    public function update(ExperienceSectionFormRequest $request, Experience $experienceSection)
-    {
-        $experienceSection->update($request->validated());
-        
-        return redirect()
-                    ->route('backend.experience-sections.index')
-                    ->flashify('update', 'Data updated successfully');
-    }
-    public function destroy(Experience $experienceSection)
-    {
-        $experienceSection->delete();
 
-        return redirect()
-                ->route('backend.experience-sections.index')
-                ->flashify('delete', 'Data deleted successfully');
+    public function edit(Experience $experience)
+    {
+        return view('backend.experience.form', compact('experience'));
+    }
+
+    public function update(ExperienceFormRequest $request, Experience $experience)
+    {
+        $experience->update($request->validated());
+
+        return redirect()->route('backend.experiences.index')->flashify('updated');
+    }
+
+    public function destroy(Experience $experience)
+    {
+        $experience->delete();
+
+        return back()->flashify('deleted');
     }
 }
