@@ -7,84 +7,27 @@
             <div class="col-lg-6 text-lg-end">
                 <ul class="list-inline mx-n3 mb-0" id="portfolio-flters">
                     <li class="mx-3 active" data-filter="*">All Projects</li>
-                    <li class="mx-3" data-filter=".first">UI/UX Design</li>
-                    <li class="mx-3" data-filter=".second">Graphic Design</li>
+                    @foreach($categorys as $category)
+                        <li class="mx-3" data-filter=".first">{{ $category->name }}</li>
+                    @endforeach
                 </ul>
             </div>
         </div>
         <div class="row g-4 portfolio-container wow fadeInUp" data-wow-delay="0.1s">
-            <div class="col-lg-4 col-md-6 portfolio-item first">
-                <div class="portfolio-img rounded overflow-hidden">
-                    <img class="img-fluid" src="{{ asset('assets/frontend/img/project-1.jpg') }}" alt="Image" />
-                    <div class="portfolio-btn">
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1"
-                            href="{{ asset('assets/frontend/img/project-1.jpg') }}" data-lightbox="portfolio"><i
-                                class="fa fa-eye"></i></a>
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i
-                                class="fa fa-link"></i></a>
+            @foreach($projects as $project)
+                <div class="col-lg-4 col-md-6 portfolio-item first">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="{{ asset($project->image) }}" alt="Image" />
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1"
+                                href="{{ asset($project->image) }}" data-lightbox="portfolio"><i
+                                    class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i
+                                    class="fa fa-link"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item second">
-                <div class="portfolio-img rounded overflow-hidden">
-                    <img class="img-fluid" src="{{ asset('assets/frontend/img/project-2.jpg') }}" alt="Image" />
-                    <div class="portfolio-btn">
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1"
-                            href="{{ asset('assets/frontend/img/project-2.jpg') }}" data-lightbox="portfolio"><i
-                                class="fa fa-eye"></i></a>
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i
-                                class="fa fa-link"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item first">
-                <div class="portfolio-img rounded overflow-hidden">
-                    <img class="img-fluid" src="{{ asset('assets/frontend/img/project-3.jpg') }}" alt="Image" />
-                    <div class="portfolio-btn">
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1"
-                            href="{{ asset('assets/frontend/img/project-3.jpg') }}" data-lightbox="portfolio"><i
-                                class="fa fa-eye"></i></a>
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i
-                                class="fa fa-link"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item second">
-                <div class="portfolio-img rounded overflow-hidden">
-                    <img class="img-fluid" src="{{ asset('assets/frontend/img/project-4.jpg') }}" alt="Image" />
-                    <div class="portfolio-btn">
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1"
-                            href="{{ asset('assets/frontend/img/project-4.jpg') }}" data-lightbox="portfolio"><i
-                                class="fa fa-eye"></i></a>
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i
-                                class="fa fa-link"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item first">
-                <div class="portfolio-img rounded overflow-hidden">
-                    <img class="img-fluid" src="{{ asset('assets/frontend/img/project-5.jpg') }}" alt="Image" />
-                    <div class="portfolio-btn">
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1"
-                            href="{{ asset('assets/frontend/img/project-5.jpg') }}" data-lightbox="portfolio"><i
-                                class="fa fa-eye"></i></a>
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i
-                                class="fa fa-link"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item second">
-                <div class="portfolio-img rounded overflow-hidden">
-                    <img class="img-fluid" src="{{ asset('assets/frontend/img/project-6.jpg') }}" alt="Image" />
-                    <div class="portfolio-btn">
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1"
-                            href="{{ asset('assets/frontend/img/project-6.jpg') }}" data-lightbox="portfolio"><i
-                                class="fa fa-eye"></i></a>
-                        <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i
-                                class="fa fa-link"></i></a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

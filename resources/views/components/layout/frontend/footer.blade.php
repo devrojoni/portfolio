@@ -2,12 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                &copy; <a class="border-bottom text-secondary" href="#">Your Site Name</a>, All Right Reserved.
+                &copy; <a class="border-bottom text-secondary" href="#">{{ setting('website_name') }}</a>, All Right Reserved.
             </div>
             <div class="col-md-6 text-center text-md-end">
-                Designed By <a class="border-bottom text-secondary" href="https://htmlcodex.com">HTML Codex</a>
-                <br>Distributed By: <a class="border-bottom" href="https://themewagon.com"
-                    target="_blank">ThemeWagon</a>
+                Distributed By: <a class="border-bottom" href="https://themewagon.com"
+                target="_blank">{{ setting('copyright_name') }}</a>
             </div>
         </div>
     </div>

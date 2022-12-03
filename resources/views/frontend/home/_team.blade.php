@@ -9,42 +9,20 @@
             </div>
         </div>
         <div class="row g-4">
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-item position-relative">
-                    <img class="img-fluid rounded" src="{{ asset('assets/frontend/img/team-1.jpg') }}" alt="Image" />
-                    <div class="team-text bg-white rounded-end p-4">
-                        <div>
-                            <h5>Full Name</h5>
-                            <span>Designer</span>
+            @foreach($teams as $team)
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item position-relative">
+                        <img class="img-fluid rounded" src="{{ asset($team->image) }}" alt="Image" style="height: 150px; width: 250px;"/>
+                        <div class="team-text bg-white rounded-end p-4">
+                            <div>
+                                <h5>{{ $team->name }}</h5>
+                                <span>{{ $team->designation }}</span>
+                            </div>
+                            <i class="fa fa-arrow-right fa-2x text-primary"></i>
                         </div>
-                        <i class="fa fa-arrow-right fa-2x text-primary"></i>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="team-item position-relative">
-                    <img class="img-fluid rounded" src="{{ asset('assets/frontend/img/team-2.jpg') }}" alt="Image" />
-                    <div class="team-text bg-white rounded-end p-4">
-                        <div>
-                            <h5>Full Name</h5>
-                            <span>Designer</span>
-                        </div>
-                        <i class="fa fa-arrow-right fa-2x text-primary"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="team-item position-relative">
-                    <img class="img-fluid rounded" src="{{ asset('assets/frontend/img/team-3.jpg') }}" alt="Image" />
-                    <div class="team-text bg-white rounded-end p-4">
-                        <div>
-                            <h5>Full Name</h5>
-                            <span>Designer</span>
-                        </div>
-                        <i class="fa fa-arrow-right fa-2x text-primary"></i>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

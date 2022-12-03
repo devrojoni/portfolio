@@ -11,13 +11,13 @@
         <div class="row g-5">
             <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <p class="mb-2">My office:</p>
-                <h3 class="fw-bold">123 Street, New York, USA</h3>
+                <h3 class="fw-bold">{{ setting('company_address') }}</h3>
                 <hr class="w-100">
                 <p class="mb-2">Call me:</p>
-                <h3 class="fw-bold">+012 345 6789</h3>
+                <h3 class="fw-bold">{{ setting('company_phone') }}</h3>
                 <hr class="w-100">
                 <p class="mb-2">Mail me:</p>
-                <h3 class="fw-bold">info@example.com</h3>
+                <h3 class="fw-bold">{{ setting('company_email') }}</h3>
                 <hr class="w-100">
                 <p class="mb-2">Follow me:</p>
                 <div class="d-flex pt-2">

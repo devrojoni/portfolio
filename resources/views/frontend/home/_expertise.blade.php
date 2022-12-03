@@ -36,58 +36,26 @@
                 <div class="tab-content">
                     <div id="tab-1" class="tab-pane fade show p-0 active">
                         <div class="row gy-5 gx-4">
-                            <div class="col-sm-6">
-                                <h5>UI Designer</h5>
-                                <hr class="text-primary my-2">
-                                <p class="text-primary mb-1">2000 - 2045</p>
-                                <h6 class="mb-0">Apex Software Inc</h6>
-                            </div>
-                            <div class="col-sm-6">
-                                <h5>Product Designer</h5>
-                                <hr class="text-primary my-2">
-                                <p class="text-primary mb-1">2000 - 2045</p>
-                                <h6 class="mb-0">Apex Software Inc</h6>
-                            </div>
-                            <div class="col-sm-6">
-                                <h5>Web Designer</h5>
-                                <hr class="text-primary my-2">
-                                <p class="text-primary mb-1">2000 - 2045</p>
-                                <h6 class="mb-0">Apex Software Inc</h6>
-                            </div>
-                            <div class="col-sm-6">
-                                <h5>Apps Designer</h5>
-                                <hr class="text-primary my-2">
-                                <p class="text-primary mb-1">2000 - 2045</p>
-                                <h6 class="mb-0">Apex Software Inc</h6>
-                            </div>
+                            @foreach($experiences as $experience)
+                                <div class="col-sm-6">
+                                    <h5>{{ $experience->designation }}</h5>
+                                    <hr class="text-primary my-2">
+                                    <p class="text-primary mb-1">{{ ($experience->started_at)->format('d/m/Y') }} - {{ ($experience->end_at)->format('d/m/Y') }}</p>
+                                    <h6 class="mb-0">{{ $experience->company }}</h6>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <div id="tab-2" class="tab-pane fade show p-0">
                         <div class="row gy-5 gx-4">
-                            <div class="col-sm-6">
-                                <h5>UI Design Course</h5>
-                                <hr class="text-primary my-2">
-                                <p class="text-primary mb-1">2000 - 2045</p>
-                                <h6 class="mb-0">Cambridge University</h6>
-                            </div>
-                            <div class="col-sm-6">
-                                <h5>IOS Development</h5>
-                                <hr class="text-primary my-2">
-                                <p class="text-primary mb-1">2000 - 2045</p>
-                                <h6 class="mb-0">Cambridge University</h6>
-                            </div>
-                            <div class="col-sm-6">
-                                <h5>Web Design</h5>
-                                <hr class="text-primary my-2">
-                                <p class="text-primary mb-1">2000 - 2045</p>
-                                <h6 class="mb-0">Cambridge University</h6>
-                            </div>
-                            <div class="col-sm-6">
-                                <h5>Apps Design</h5>
-                                <hr class="text-primary my-2">
-                                <p class="text-primary mb-1">2000 - 2045</p>
-                                <h6 class="mb-0">Cambridge University</h6>
-                            </div>
+                            @foreach($educations as $education)
+                                <div class="col-sm-6">
+                                    <h5>{{ $education->course }}</h5>
+                                    <hr class="text-primary my-2">
+                                    <p class="text-primary mb-1">{{ ($education->started_at)->format('d/m/Y') }} - {{ ($education->end_at)->format('d/m/Y') }}</p>
+                                    <h6 class="mb-0">{{ $education->institute }}</h6>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
