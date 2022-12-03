@@ -150,6 +150,13 @@
                     <span class="sidebar-text">{{ __('Teams') }}</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a href="{{ route('backend.testimonials.index') }}" class="nav-link d-flex align-items-center">
+                <i class="sidebar-icon ph-aperture fs-4"></i>
+                    <span class="sidebar-text">{{ __('Testimonials') }}</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

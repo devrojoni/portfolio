@@ -7,70 +7,20 @@
                     diam ipsum clita dolor duo clita sit.</p>
                 <h3 class="mb-4">My Skills</h3>
                 <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <h6 class="font-weight-bold">HTML</h6>
-                                <h6 class="font-weight-bold">95%</h6>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="95"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <h6 class="font-weight-bold">CSS</h6>
-                                <h6 class="font-weight-bold">85%</h6>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="85"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
+                    @foreach($skills as $skill)
+                        <div class="col-md-6">
+                            <div class="skill mb-4">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="font-weight-bold">{{ $skill->name }}</h6>
+                                    <h6 class="font-weight-bold">{{ $skill->percentage }}</h6>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="{{ $skill->percentage }}"
+                                        aria-valuemin="0" aria-valuemax="100" style="background-color:{{ $skill->color }} !important;"></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <h6 class="font-weight-bold">PHP</h6>
-                                <h6 class="font-weight-bold">90%</h6>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <h6 class="font-weight-bold">Javascript</h6>
-                                <h6 class="font-weight-bold">90%</h6>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <h6 class="font-weight-bold">Angular JS</h6>
-                                <h6 class="font-weight-bold">95%</h6>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="95"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <h6 class="font-weight-bold">Wordpress</h6>
-                                <h6 class="font-weight-bold">85%</h6>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="85"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
