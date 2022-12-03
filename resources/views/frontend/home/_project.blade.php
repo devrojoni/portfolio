@@ -7,15 +7,15 @@
             <div class="col-lg-6 text-lg-end">
                 <ul class="list-inline mx-n3 mb-0" id="portfolio-flters">
                     <li class="mx-3 active" data-filter="*">All Projects</li>
-                    @foreach($categorys as $category)
-                        <li class="mx-3" data-filter=".first">{{ $category->name }}</li>
+                    @foreach($categories as $category)
+                        <li class="mx-3" data-filter=".category-{{ $category->id }}">{{ $category->name }}</li>
                     @endforeach
                 </ul>
             </div>
         </div>
         <div class="row g-4 portfolio-container wow fadeInUp" data-wow-delay="0.1s">
             @foreach($projects as $project)
-                <div class="col-lg-4 col-md-6 portfolio-item first">
+                <div class="col-lg-4 col-md-6 portfolio-item category-{{ $project->category_id }}">
                     <div class="portfolio-img rounded overflow-hidden">
                         <img class="img-fluid" src="{{ asset($project->image) }}" alt="Image" />
                         <div class="portfolio-btn">

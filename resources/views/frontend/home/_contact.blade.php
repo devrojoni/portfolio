@@ -21,10 +21,11 @@
                 <hr class="w-100">
                 <p class="mb-2">Follow me:</p>
                 <div class="d-flex pt-2">
-                    <a class="btn btn-square btn-primary me-2" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square btn-primary me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-square btn-primary me-2" href=""><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-square btn-primary me-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                    @foreach ($socials as $social)
+                        <a class="btn btn-square btn-primary me-2" href="{{ $social->url }}" target="_blank">
+                            <i class="{{ $social->icon }}"></i>
+                        </a>
+                    @endforeach
                 </div>
             </div>
             <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
