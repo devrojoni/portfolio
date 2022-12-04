@@ -12,8 +12,8 @@ use App\Models\Team;
 use App\Models\Testimonial;
 use App\Models\Project;
 use App\Models\Category;
-use App\Http\Controllers\Controller;
 use App\Models\Social;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -23,21 +23,21 @@ class HomeController extends Controller
 
         $data['aboutSection'] = AboutSection::first();
 
-        $data['skills'] = Skill::where('status', 'Active')->get();
+        $data['skills'] = Skill::Where('status', 'Active')->get();
 
-        $data['experiences'] = Experience::where('status', 'Active')->get();
+        $data['experiences'] = Experience::Where('status', 'Active')->get();
 
-        $data['educations'] = Education::where('status', 'Active')->get();
+        $data['educations'] = Education::Where('status', 'Active')->get();
 
-        $data['services'] = Service::where('status', 'Active')->get();
+        $data['services'] = Service::Where('status', 'Active')->get();
 
-        $data['teams'] = Team::where('status', 'Active')->get();
+        $data['teams'] = Team::Where('status', 'Active')->get();
 
-        $data['testimonials'] = Testimonial::where('status', 'Active')->get();
+        $data['testimonials'] = Testimonial::Where('status', 'Active')->get();
 
-        $data['categories'] = Category::where('status', 'Active')->get();
+        $data['categorys'] = Category::Where('status', 'Active')->get();
 
-        $data['projects'] = Project::where('status', 'Active')->get();
+        $data['projects'] = Project::Where('status', 'Active')->get();
 
         $data['socials'] = Social::get();
 

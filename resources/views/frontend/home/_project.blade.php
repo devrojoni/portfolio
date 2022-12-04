@@ -7,7 +7,7 @@
             <div class="col-lg-6 text-lg-end">
                 <ul class="list-inline mx-n3 mb-0" id="portfolio-flters">
                     <li class="mx-3 active" data-filter="*">All Projects</li>
-                    @foreach($categories as $category)
+                    @foreach($categorys as $category)
                         <li class="mx-3" data-filter=".category-{{ $category->id }}">{{ $category->name }}</li>
                     @endforeach
                 </ul>
@@ -17,7 +17,7 @@
             @foreach($projects as $project)
                 <div class="col-lg-4 col-md-6 portfolio-item category-{{ $project->category_id }}">
                     <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="{{ asset($project->image) }}" alt="Image" />
+                        <img class="img-fluid" src="{{ asset($project->image) }}" alt="Image" style="height: 200px; width: 370px;" />
                         <div class="portfolio-btn">
                             <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1"
                                 href="{{ asset($project->image) }}" data-lightbox="portfolio"><i

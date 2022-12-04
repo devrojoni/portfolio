@@ -21,10 +21,8 @@
                 <hr class="w-100">
                 <p class="mb-2">Follow me:</p>
                 <div class="d-flex pt-2">
-                    @foreach ($socials as $social)
-                        <a class="btn btn-square btn-primary me-2" href="{{ $social->url }}" target="_blank">
-                            <i class="{{ $social->icon }}"></i>
-                        </a>
+                    @foreach($socials as $social)
+                        <a class="btn btn-square btn-primary me-2" href="{{ $social->url }}"><i class="{{ $social->icon }}"></i></a>
                     @endforeach
                 </div>
             </div>

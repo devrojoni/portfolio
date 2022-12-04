@@ -28,10 +28,8 @@ class ServiceFormRequest extends FormRequest
                 'required',
                 'max:255',
             ],
-            'image' => [
-                $this->service ? 'nullable' : 'required',
-                'file',
-                'max:2048',
+            'icon' => [
+                'required',
             ],
             'description' => [
                 'nullable',
@@ -40,16 +38,5 @@ class ServiceFormRequest extends FormRequest
                 'required',
             ],
         ];
-    }
-
-    public function persist()
-    {
-        $validated = $this->validated();
-
-        if ($this->hasFile('image')) {
-            $validated['image'] = upload($this->image, 'services/', $this->service->image ?? null);
-        }
-
-        return $validated;
     }
 }

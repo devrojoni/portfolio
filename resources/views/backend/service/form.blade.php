@@ -29,13 +29,11 @@
 
                             <x-ui.input
                                 group="col-md-6"
-                                :label="__('Image')"
-                                type="file"
-                                name="image"
-                                id="image"
-                                :value="isset($service->image) ? asset($service->image) : null"
-                                accept="image/*"
-                                :required="isset($service) ? false : true"
+                                :label="__('Icon')"
+                                name="icon"
+                                id="icon"
+                                :value="$service->icon ?? null"
+                                required
                             />
                         </div>
 
@@ -43,9 +41,11 @@
                             <x-ui.input
                                 group="col-md-6"
                                 :label="__('Description')"
+                                type="textarea"
                                 name="description"
                                 id="description"
                                 :value="$service->description ?? null"
+                                rows="3"
                             />
 
                             <div class="col-md-6">

@@ -17,7 +17,6 @@
         <link href="{{ asset('assets/frontend/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('assets/frontend/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('assets/frontend/css/bootstrap.min.css') }}" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.css" />
         <link href="{{ asset('assets/frontend/css/style.css') }}" rel="stylesheet" />
     </head>
 

@@ -12,7 +12,7 @@
             @foreach($teams as $team)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item position-relative">
-                        <img class="img-fluid rounded" src="{{ asset($team->image) }}" alt="Image" style="height: 150px; width: 250px;"/>
+                        <img class="img-fluid rounded" src="{{ asset($team->image) }}" alt="Image" style="height: 200px; width: 370px;" />
                         <div class="team-text bg-white rounded-end p-4">
                             <div>
                                 <h5>{{ $team->name }}</h5>

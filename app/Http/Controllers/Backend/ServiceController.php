@@ -22,7 +22,7 @@ class ServiceController extends Controller
 
     public function store(ServiceFormRequest $request)
     {
-        Service::create($request->persist());
+        Service::create($request->validated());
 
         return redirect()->route('backend.services.index')->flashify('created');
     }
@@ -39,7 +39,7 @@ class ServiceController extends Controller
 
     public function update(ServiceFormRequest $request, Service $service)
     {
-        $service->update($request->persist());
+        $service->update($request->validated());
 
         return redirect()->route('backend.services.index')->flashify('updated');
     }

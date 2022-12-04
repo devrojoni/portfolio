@@ -22,7 +22,7 @@
                                 <tr>
                                     <th class="text-start border-0">{{ __('SL') }}</th>
                                     <th class="text-center border-0">{{ __('Name') }}</th>
-                                    <th class="text-center border-0">{{ __('Image') }}</th>
+                                    <th class="text-center border-0">{{ __('Icon') }}</th>
                                     <th class="text-center border-0">{{ __('Description') }}</th>
                                     <th class="text-center border-0">{{ __('Status') }}</th>
                                     <th class="text-end border-0">{{ __('Action') }}</th>
@@ -34,9 +34,7 @@
                                     <tr>
                                         <td class="text-start">{{ $loop->iteration }}</td>
                                         <td class="text-center">{{ $service->name }}</td>
-                                        <td class="text-center">
-                                            <img src="{{ isset($service->image) ? asset($service->image) : ('https://via.placeholder.com/80/daeef8?text=' . setting('website_name')) }}" width="80" height="80" alt="Image" />
-                                        </td>
+                                        <td class="text-center">{{ $service->icon }}</td>
                                         <td class="text-center">{{ $service->description }}</td>
                                         <td class="text-center">{{ $service->status }}</td>
                                         <td class="text-end">

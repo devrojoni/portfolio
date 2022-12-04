@@ -52,5 +52,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'backend', 'as' => 'backend.
 
     Route::resource('teams', Backend\TeamController::class);
 
-    Route::resource('testimonials', Backend\TestimonialsController::class);
+    Route::resource('testimonials', Backend\TestimonialController::class);
 });

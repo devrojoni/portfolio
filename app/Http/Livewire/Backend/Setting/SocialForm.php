@@ -25,7 +25,7 @@ class SocialForm extends Component
 
         flashify()->livewire($this)->fire($this->social_id ? 'updated' : 'created');
 
-        $this->reset('icon', 'url', 'social_id');
+        $this->reset('icon', 'url');
     }
 
     public function edit(Social $social)
