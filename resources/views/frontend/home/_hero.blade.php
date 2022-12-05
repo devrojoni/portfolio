@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <img class="img-fluid" src="{{ asset($heroSection->image) }}" alt="Image" />
+                <img class="img-fluid" src="{{ asset($heroSection->image ?? null) }}" alt="Image" />
             </div>
         </div>
     </div>
