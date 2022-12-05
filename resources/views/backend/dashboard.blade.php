@@ -13,7 +13,7 @@
                         <div class="col-12 col-xl-7 px-xl-0">
                             <div class="d-none d-sm-block">
                                 <h2 class="h6 text-gray-400 mb-0">{{ __('Total Service') }}</h2>
-                                <h3 class="fw-extrabold mb-2">04</h3>
+                                <h3 class="fw-extrabold mb-2">{{ $totalService }}</h3>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                         <div class="col-12 col-xl-7 px-xl-0">
                             <div class="d-none d-sm-block">
                                 <h2 class="h6 text-gray-400 mb-0">{{ __('Total Team') }}</h2>
-                                <h3 class="fw-extrabold mb-2">05</h3>
+                                <h3 class="fw-extrabold mb-2">{{ $totalTeam }}</h3>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                         <div class="col-12 col-xl-7 px-xl-0">
                             <div class="d-none d-sm-block">
                                 <h2 class="h6 text-gray-400 mb-0">{{ __('Total Project') }}</h2>
-                                <h3 class="fw-extrabold mb-2">20</h3>
+                                <h3 class="fw-extrabold mb-2">{{ $totalProject }}</h3>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         <div class="col-12 col-xl-7 px-xl-0">
                             <div class="d-none d-sm-block">
                                 <h2 class="h6 text-gray-400 mb-0">{{ __('Total Testimonial') }}</h2>
-                                <h3 class="fw-extrabold mb-2">20</h3>
+                                <h3 class="fw-extrabold mb-2">{{ $totalTestimonial }}</h3>
                             </div>
                         </div>
                     </div>
