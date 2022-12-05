@@ -18,6 +18,10 @@
         <link href="{{ asset('assets/frontend/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('assets/frontend/css/bootstrap.min.css') }}" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css" />
+
+        <livewire:styles />
+
         <link href="{{ asset('assets/frontend/css/style.css') }}" rel="stylesheet" />
     </head>
 
@@ -44,8 +48,12 @@
         <script src="{{ asset('assets/frontend/lib/owlcarousel/owl.carousel.min.js') }}"></script>
         <script src="{{ asset('assets/frontend/lib/isotope/isotope.pkgd.min.js') }}"></script>
         <script src="{{ asset('assets/frontend/lib/lightbox/js/lightbox.min.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
         <script src="{{ asset('assets/frontend/js/main.js') }}"></script>
 
         <x-flashify::scripts />
+
+        <livewire:scripts />
     </body>
 </html>
