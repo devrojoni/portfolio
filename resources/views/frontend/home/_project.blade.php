@@ -22,9 +22,15 @@
                             <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1"
                                 href="{{ asset($project->image) }}" data-lightbox="portfolio"><i
                                     class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href=""><i
+                            @if($project->url)
+                                <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="{{ $project->url }}" target="_blank"><i
                                     class="fa fa-link"></i></a>
+                            @endif
                         </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <h5>{{ $project->title }}</h5>
+                        <h6>{{ $project->sub_title }}</h6>
                     </div>
                 </div>
             @endforeach

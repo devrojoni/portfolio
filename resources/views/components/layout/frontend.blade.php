@@ -2,12 +2,26 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>{{ config('app.name') }}</title>
+        <title>{{ setting('website_title') }}</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta content="" name="keywords" />
-        <meta content="" name="description" />
+        <meta name="title" content="{{ setting('website_title') }}" />
+        <meta name="author" content="{{ setting('website_name') }}" />
+        <meta name="description" content="{{ setting('website_description') }}" />
+        <link rel="canonical" href="{{ url()->current() }}" />
 
-        <link href="{{ asset('assets/frontend/img/favicon.ico') }}" rel="icon" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ url()->current() }}" />
+        <meta property="og:title" content="{{ setting('website_title') }}" />
+        <meta property="og:description" content="{{ setting('website_description') }}" />
+        <meta property="og:image" content="{{ asset(setting('logo')) }}" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="{{ url()->current() }}" />
+        <meta property="twitter:title" content="{{ setting('website_title') }}" />
+        <meta property="twitter:description" content="{{ setting('website_description') }}" />
+        <meta property="twitter:image" content="{{ asset(setting('logo')) }}" />
+        <link rel="icon" type="image/png" href="{{ asset(setting('favicon')) }}" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
